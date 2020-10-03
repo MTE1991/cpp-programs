@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <complex>
+
 using namespace std;
 
 class QuadEq {
@@ -36,7 +37,7 @@ class QuadEq {
         }
 
         void discriminant() {
-            cout << "discriminant = " << b*b - 4*a*c;
+            cout << "discriminant = " << b*b - 4*a*c << endl;
         }
 };
 

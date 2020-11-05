@@ -30,8 +30,8 @@ int main() {
 	cout << s1.roll << endl << endl;
 
 	s1.set_marks(); 
-	cout << "Average : " << printf("%.1f", s1.get_avg()) << endl; 
-	cout << "GPA : " << printf("%.1f", s1.get_gpa()) << endl;
+	cout << "Average : " << s1.get_avg() << endl; 
+	cout << "GPA : " << s1.get_gpa() << endl;
 	return 0;
 }
 
@@ -79,7 +79,7 @@ double Student::get_avg(void) {
 
 	for (int i=0; i < 7; i++) 
 		sum += marks[i];
-	avg = sum / 7;
+	avg = (double)sum / 7;
 	return avg;
 }
 
@@ -88,6 +88,6 @@ double Student::get_gpa(void) {
 
 	for (int i=0; i < 7; i++) 
 		sum_grades += grades[i];
-	gpa = sum_grades / 7;
+	gpa = (double)sum_grades / 7;
 	return gpa;
 }

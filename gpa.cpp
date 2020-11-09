@@ -10,7 +10,7 @@ public:
 	string name;
 	int roll;
 	string institute;
-    int marks[7];
+    	int marks[7];
 	vector<double> grades;
 
 	Student(string n, int r, string ins) {

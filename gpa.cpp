@@ -1,37 +1,54 @@
-// GPA Calculator ver 1.02
+// GPA Calculator ver 1.03
 
 #include <iostream>
 #include <vector>
-#include <cmath>
-#include <cstring>
+#include <fstream>
 using namespace std;
 
 class Student {
-	int marks[7];
-	vector<double> grades;
-
 public:
 	string name;
-	string ins;
 	int roll;
+	string institute;
+    int marks[7];
+	vector<double> grades;
+
+	Student(string n, int r, string ins) {
+	name = n;
+	roll = r;
+	institute = ins;
+	}
+
 	void set_marks(void); // input marks
 	double get_avg(void); // return average marks
 	double get_gpa(void); // return gpa
 };
 
 int main() {
-	Student s1;
-	s1.name = "MT Ekleel";
-	s1.roll = 116;
-	s1.ins = "EUSC";
+	Student s1("MT Ekleel", 116, "EUSC");
 
+	// Create Log file that will contain student info
+	ofstream logf; 
+
+	// Output Student info 
 	cout << s1.name << endl;
-	cout << s1.ins << endl;
+	cout << s1.institute << endl;
 	cout << s1.roll << endl << endl;
 
-	s1.set_marks(); 
+	s1.set_marks();
+
 	cout << "Average : " << s1.get_avg() << endl; 
 	cout << "GPA : " << s1.get_gpa() << endl;
+
+	/* Open log file and write student info and result into the txt file */
+    logf.open("student_info.txt", ios::app);
+	logf << s1.name << endl;
+	logf << s1.institute << endl;
+	logf << s1.roll << endl << endl;
+	logf << "Average : " << s1.get_avg() << endl; 
+	logf << "GPA : " << s1.get_gpa() << endl << endl;	
+
+    logf.close();
 	return 0;
 }
 

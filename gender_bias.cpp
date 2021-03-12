@@ -6,10 +6,10 @@ void game_main(void);
 
 int main(void)
 {
+    char prompt1;
 	cout << "\t\t --:Gender bias: Masculine? Feminine? or Androgynous? ver 1.01:-- \n\n";
 	cout << "Made by:\nMT Ekleel\nE-mail: mtahsinekleel02@gmail.com\nFacebook: MT Ekleel\nGitHub: MTE1991\n";
 	cout << "There will be sixty traits below that will judge how androgynous you are. Which means how much gender bias your personality has. Indicate on a scale of 1 to 7 how well each traits describe you. A 1 means it's never true for you, a 7 means it's always true.\n";
-	char prompt1;
 	cout << "Press any key to proceed...\n";
 	cin >> prompt1;
 	game_main();
@@ -18,7 +18,7 @@ int main(void)
 
 void game_main(void) {
 	ofstream logf;
-	logf.open("log.txt", ios::app);
+	logf.open("log.txt", ios::out);
 	int scores[60] = {};
 	string traits[60] = {"self-reliant","yielding","helpful","defends own beliefs","cheerful","moody","independent",
     "shy","conscientious","athletic","affectionate","theatrical","assertive","easily flattered","happy",
@@ -36,6 +36,7 @@ void game_main(void) {
     	logf << scores[i] << ", ";
     	if (scores[i] < 1 || scores[i] > 7) {
     		cout << "Please enter a number between 1 and 7.\n";
+            i--;
     		continue;
     	}
     }
@@ -75,7 +76,7 @@ void game_main(void) {
     cout << "Do you want to play again? (Y/N) >> ";
     cin >> prompt2;
 
-    if (prompt2 == 89 or prompt2 == 121)
+    if (prompt2 == 89 or prompt2 == 121) 
     	game_main();
     else
     	cout << "Thank you for playing the game. \n";

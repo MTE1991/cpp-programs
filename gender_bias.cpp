@@ -70,7 +70,7 @@ void game_main(void) {
     }
 
     cout << "Note: \n";
-    cout << "Results may be subject to doubt, even though it's a psycological game. It's because many of the qualities are subject to stereotypic bias. So the results may not be fully accurate. If you want to understand how the game works, please check the source code or contact with the developer.\n\n";
+    cout << "Results may be subject to doubt, even though it's a psycological experiment. It's because many of the qualities are subject to stereotypic bias. So the results may not be fully accurate. If you want to understand how the game works, please check the source code or contact with the developer.\n\n";
 
     char prompt2;
     cout << "Do you want to play again? (Y/N) >> ";

@@ -1,5 +1,11 @@
+/*
+    * Ideas are taken from the book "Brain Games" by Richard B. Fisher.
+    * Created by MT Ekleel
+*/
+
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -50,7 +56,7 @@ void displayIntro() {
 }
 
 void collectTraitScores(vector<int>& scores, const vector<string>& traits) {
-    ofstream logFile("log.txt", ios::app); // Open the file in append mode
+    ofstream logFile("log.txt", ios::app);
     if (!logFile.is_open()) {
         cerr << "Error: Unable to open the log file." << endl;
         return; 

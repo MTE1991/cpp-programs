@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
 using namespace std;
 
@@ -51,21 +50,25 @@ void displayIntro() {
 }
 
 void collectTraitScores(vector<int>& scores, const vector<string>& traits) {
-    ofstream logFile("log.txt", ios::out);
+    ofstream logFile("log.txt", ios::app); // Open the file in append mode
+    if (!logFile.is_open()) {
+        cerr << "Error: Unable to open the log file." << endl;
+        return; 
+    }
+
     logFile << "username: " << userName << endl;
     for (int i = 0; i < NUM_TRAITS; i++) {
         cout << i + 1 << ". " << traits[i] << " >> ";
         cin >> scores[i];
         logFile << scores[i] << ", ";
-        
         if (scores[i] < 1 || scores[i] > 7) {
-            cout << "Please enter a number between 1 and 7.\n";
+            cout << "Please enter a number between 1 and 7." << endl;
             i--;
         }
     }
 
     logFile << endl;
-    logFile.close();
+    logFile.close(); 
 }
 
 double calculateResult(const vector<int>& scores) {

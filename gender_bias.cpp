@@ -114,3 +114,4 @@ void displayResult(double result) {
         cout << "Thank you for playing the game. \n";
     }
 }
+
